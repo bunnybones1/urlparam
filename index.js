@@ -1,3 +1,6 @@
+var URLParams = {
+	active : true
+};
 var reminders = [];
 var reminderGiven = false;
 function remind() {
@@ -7,12 +10,14 @@ function remind() {
 };
 
 function getParam(name) {
-	reminders.push(name);
-	reminderGiven = false;
-	setTimeout(remind, 2000);
+	if(!URLParams.active) return;
+	if(reminders.indexOf(name) == -1) {
+		reminders.push(name);
+		reminderGiven = false;
+		setTimeout(remind, 2000);
+	}
 	var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
 	var results = regex.exec(window.location.href);
-	
 	if (results==null){
 	   return undefined;
 	} else if(results[1] == "true"){
@@ -26,6 +31,6 @@ function getParam(name) {
 	}
 }
 
-module.exports = {
-	getParam : getParam
-}
+URLParams.getParam = getParam;
+
+module.exports = URLParams;

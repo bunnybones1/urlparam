@@ -10,7 +10,9 @@
     "url": "https://github.com/bunnybones1"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "dom-quick-text": "^1.0.0"
+  },
   "scripts": {
     "test": "beefy test.js --live --open"
   },
