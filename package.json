@@ -17,7 +17,9 @@
     "test": "beefy test.js --live --open"
   },
   "keywords": [
-    "urlparams"
+    "url",
+    "param",
+    "parameter"
   ],
   "repository": {
     "type": "git",
