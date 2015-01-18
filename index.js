@@ -1,6 +1,3 @@
-var URLParams = {
-	active : true
-};
 var reminders = [];
 var reminderGiven = false;
 function remind() {
@@ -9,8 +6,8 @@ function remind() {
 	console.log("URL PARAMS AVAILABLE: " + reminders.join(", "));
 };
 
-function getParam(name, defaultValue) {
-	if(!URLParams.active) return defaultValue || null;
+function getURLParam(name, defaultValue) {
+	if(!getURLParam.active) return defaultValue || null;
 	if(reminders.indexOf(name) == -1) {
 		reminders.push(name);
 		reminderGiven = false;
@@ -31,6 +28,6 @@ function getParam(name, defaultValue) {
 	}
 }
 
-URLParams.getParam = getParam;
+getURLParam.active = true;
 
-module.exports = URLParams;
+module.exports = getURLParam;

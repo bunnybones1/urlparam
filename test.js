@@ -1,9 +1,11 @@
-var urlParams = require('./');
+var urlParam = require('./');
 var domQuickText = require('dom-quick-text');
 
-var test = urlParams.getParam('test', 'default');
-var test2 = urlParams.getParam('test2', 1000);
-var redundancyTest = urlParams.getParam('test2', 10);
+// urlParam.active = false;
+
+var test = urlParam('test', 'default');
+var test2 = urlParam('test2', 1000);
+var redundancyTest = urlParam('test2', 10);
 
 domQuickText('test:' + test);
 domQuickText('test2:' + test2);
