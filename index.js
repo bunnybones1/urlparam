@@ -9,8 +9,8 @@ function remind() {
 	console.log("URL PARAMS AVAILABLE: " + reminders.join(", "));
 };
 
-function getParam(name) {
-	if(!URLParams.active) return;
+function getParam(name, defaultValue) {
+	if(!URLParams.active) return defaultValue || null;
 	if(reminders.indexOf(name) == -1) {
 		reminders.push(name);
 		reminderGiven = false;
@@ -19,7 +19,7 @@ function getParam(name) {
 	var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
 	var results = regex.exec(window.location.href);
 	if (results==null){
-	   return undefined;
+	   return defaultValue;
 	} else if(results[1] == "true"){
 		return true;
 	} else if(results[1] == "false"){
@@ -27,7 +27,7 @@ function getParam(name) {
 	} else if(!isNaN(results[1])){
 		return parseInt(results[1]);
 	} else {
-		return results[1] || false;
+		return results[1] || defaultValue || false;
 	}
 }
 
