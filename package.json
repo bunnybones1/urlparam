@@ -1,6 +1,6 @@
 {
   "name": "urlparam",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A utility to gleam values easily from url parameters. Includes console.log reminders of possible params.",
   "main": "index.js",
   "license": "MIT",
