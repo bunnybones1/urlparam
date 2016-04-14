@@ -6,7 +6,7 @@ function remind() {
 	console.log("URL PARAMS AVAILABLE: " + reminders.join(", "));
 };
 
-function getURLParam(name, defaultValue) {
+function getURLParam(name, defaultValue, isString) {
 	if(!getURLParam.active) return defaultValue || null;
 	if(reminders.indexOf(name) == -1) {
 		reminders.push(name);
@@ -21,7 +21,7 @@ function getURLParam(name, defaultValue) {
 		return true;
 	} else if(results[1] == "false"){
 		return false;
-	} else if(!isNaN(results[1])){
+	} else if(!isNaN(results[1]) && !isString){
 		return parseInt(results[1]);
 	} else {
 		return results[1] || defaultValue || false;
