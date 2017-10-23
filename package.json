@@ -11,10 +11,11 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "budo": "^10.0.4",
     "dom-quick-text": "^1.0.0"
   },
   "scripts": {
-    "test": "beefy test.js --live --open"
+    "test": "budo test.js --live --open"
   },
   "keywords": [
     "url",
